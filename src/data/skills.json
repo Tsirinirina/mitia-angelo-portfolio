@@ -1,0 +1,102 @@
+[
+  {
+    "id": "548652b4-949b-4689-ab01-fa11cd5fe4c5",
+    "category": "FRONT_END",
+    "name": "ReactJs",
+    "percentage": 70,
+    "iconName": "REACTJS",
+    "ranking": "Intermédiaire",
+    "createdAt": "2025-02-12T08:23:10Z"
+  },
+  {
+    "id": "c65bdc1a-c860-4111-aee0-b80df1036a7a",
+    "category": "FRONT_END",
+    "name": "NextJs",
+    "percentage": 80,
+    "iconName": "NEXTJS",
+    "ranking": "Avancée",
+    "createdAt": "2025-02-12T08:23:10Z"
+  },
+  {
+    "id": "71bb5ba4-04cf-413e-8d49-f22b26f0edf1",
+    "category": "FRONT_END",
+    "name": "AngularJS",
+    "percentage": 23,
+    "iconName": "ANGULAR",
+    "ranking": "Intermédiaire",
+    "createdAt": "2025-02-12T08:23:10Z"
+  },
+  {
+    "id": "1484c8a9-9593-4999-857d-d60074ed8166",
+    "category": "BACK_END",
+    "name": "Node.js",
+    "percentage": 65,
+    "iconName": "NODEJS",
+    "ranking": "Intermédiaire",
+    "createdAt": "2025-02-12T08:23:10Z"
+  },
+  {
+    "id": "4c390c35-186c-4020-9e90-9489fdd49d01",
+    "category": "BACK_END",
+    "name": "NestJs",
+    "percentage": 65,
+    "iconName": "NESTJS",
+    "ranking": "Intermédiaire",
+    "createdAt": "2025-02-12T08:23:10Z"
+  },
+
+  {
+    "id": "7c0010e7-7e3b-4f98-8a8f-4f2bbb8902f0",
+    "category": "BACK_END",
+    "name": "Symfony 5,6",
+    "percentage": 45,
+    "iconName": "SYMFONY",
+    "ranking": "Intermédiaire",
+    "createdAt": "2025-02-12T08:23:10Z"
+  },
+  {
+    "id": "527fd7db-7b96-4d8b-9ebc-5b3b7d4e3370",
+    "category": "DATABASE",
+    "name": "MySQL",
+    "percentage": 80,
+    "iconName": "MYSQL",
+    "ranking": "Avancée",
+    "createdAt": "2025-02-12T08:23:10Z"
+  },
+  {
+    "id": "f466bd1f-aa78-4c54-a15d-2f12442589b4",
+    "category": "DATABASE",
+    "name": "MongoDB",
+    "percentage": 70,
+    "iconName": "MONGODB",
+    "ranking": "Intermédiaire",
+    "createdAt": "2025-02-12T08:23:10Z"
+  },
+  {
+    "id": "9b1573aa-70e2-4b56-9101-dcda4e9eae87",
+    "category": "PROGRAMMING_LANGUAGE",
+    "name": "JavaScript",
+    "percentage": 80,
+    "iconName": "JAVASCRIPT",
+    "ranking": "Avancée",
+    "createdAt": "2024-02-12T08:23:10Z"
+  },
+  {
+    "id": "b2fd1e28-703f-4f59-a16a-c54473aae41c",
+    "category": "PROGRAMMING_LANGUAGE",
+    "name": "Docker",
+    "percentage": 50,
+    "iconName": "DOCKER",
+    "ranking": "Intermédiaire",
+    "createdAt": "2020-05-12T08:23:10Z"
+  },
+  {
+    "id": "b2fd1e28-703f-4f59-a16a-c54473aae45c",
+    "category": "PROGRAMMING_LANGUAGE",
+    "name": "Wordpress",
+    "percentage": 50,
+    "iconName": "WORDPRESS",
+    "ranking": "Intermédiaire",
+    "createdAt": "2020-05-12T08:23:10Z"
+  }
+]

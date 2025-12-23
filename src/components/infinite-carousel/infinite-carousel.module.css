@@ -1,0 +1,84 @@
+.card3dContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card3d {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  height: 200px;
+  transform-style: preserve-3d;
+  transform: perspective(100vw);
+  animation: autoRun3d 60s linear infinite;
+  will-change: transform;
+}
+
+.card3d div {
+  position: absolute;
+  width: 100%;
+  max-width: 60px;
+  max-height: 160px;
+  border-radius: 50%;
+  /* border: 2px solid #fff; */
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  /* animation: animateBrightness 20s linear infinite; */
+  transition-duration: 200ms;
+  will-change: transform, filter;
+  padding: 5px;
+}
+
+.card3d:hover {
+  /* animation-play-state: paused !important; */
+}
+
+.card3d:hover div {
+  /* animation-play-state: paused !important; */
+}
+
+@keyframes autoRun3d {
+  from {
+    transform: perspective(100vw) rotateY(0deg);
+  }
+  to {
+    transform: perspective(100vw) rotateY(360deg);
+  }
+}
+
+@keyframes animateBrightness {
+  10% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(0.5);
+  }
+  90% {
+    filter: brightness(1);
+  }
+}
+
+/* Ajustement dynamique des rotations pour les éléments */
+.card3d div {
+  --angle: calc(360deg / var(--item-count));
+}
+
+.card3d div:nth-child(n) {
+  transform: translate(-50%, -50%) rotateY(calc(var(--angle) * var(--index)))
+    translateZ(200px);
+}
+
+.card3d div:hover {
+  cursor: pointer;
+}
+
+.card3d div:nth-child(n):active {
+  transform: translate(-50%, -50%) rotateY(calc(var(--angle) * var(--index)))
+    translateZ(240px);
+  cursor: pointer;
+}

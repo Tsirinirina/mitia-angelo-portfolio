@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  gap: 20px;
+  background: #111827d6;
+  padding: 10px 15px;
+  min-width: 300px;
+  border-radius: 10px;
+  transition: trasform 2s ease-in-out;
+}
+
+.navLink {
+  color: var(--light);
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: var(--light);
+  text-shadow: 0 0 5px var(--light), 0 0 10px var(--light),
+    0 0 20px var(--light-hover), 0 0 40px var(--light-hover);
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+.container:hover .navLink:not(:hover) {
+  color: var(--light-hover);
+}

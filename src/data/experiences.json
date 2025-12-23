@@ -1,0 +1,61 @@
+[
+  {
+    "id": "538fb1e8-7f7f-4b9e-bd51-d7a809c0538f",
+    "companyName": "Visions Additionnelles Madagascar",
+    "position": "Développeur Backend (Application SIRH)",
+    "description": "Conception, développement et maintenance des services backend d’une application SIRH, en garantissant la performance, la sécurité et la fiabilité des traitements RH.",
+    "startDate": "2025-12-01",
+    "endDate": "",
+    "contractType": "Freelance",
+    "location": "Anjanahary",
+    "tasks": [
+      "Développement et maintenance des services backend pour les applications web.",
+      "Conception et optimisation des API REST sous Node.js et NestJS.",
+      "Optimisation des performances et des requêtes backend.",
+      "Collaboration avec l’équipe technique pour concevoir des solutions évolutives et robustes.",
+      "Mise en œuvre d’architectures scalables adaptées aux besoins métier RH."
+    ],
+    "technologiesUsed": [
+      "JAVASCRIPT",
+      "NODEJS",
+      "NESTJS",
+      "REACTJS",
+      "MONGODB",
+      "REACT_NATIVE"
+    ],
+    "createdAt": "2025-12-23T08:00:10Z"
+  },
+  {
+    "id": "625a9b84-d827-4327-ab32-f1252efdb1ff",
+    "companyName": "ITRAS Group",
+    "position": "Développeur Web Full-Stack (Junior)",
+    "description": "Responsable du développement et de la maintenance des applications web en environnement Full-Stack.",
+    "startDate": "2024-05-06",
+    "endDate": "",
+    "contractType": "CDI",
+    "location": "Nanisana",
+    "tasks": [
+      "Développement de nouvelles fonctionnalités et maintenance des plateformes existantes.",
+      "Optimisation des performances du backend sous NODEJS.",
+      "Intégration et gestion des conteneurs DOCKER pour les environnements de production.",
+      "Collaboration avec l'équipe pour concevoir des solutions évolutives et robustes.",
+      "Mise en œuvre de solutions scalables pour augmenter l'efficacité du système.",
+      "Optimisation des requêtes API",
+      "Automatisation du processus de déploiement via DOCKER."
+    ],
+    "technologiesUsed": [
+      "JAVASCRIPT",
+      "NODEJS",
+      "ANGULARJS",
+      "REACTJS",
+      "NEXTJS",
+      "NESTJS",
+      "DOCKER",
+      "WORDPRESS",
+      "UMBRACO",
+      "FIGMA",
+      "MONGODB"
+    ],
+    "createdAt": "2025-03-12T08:23:10Z"
+  }
+]

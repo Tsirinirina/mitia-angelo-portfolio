@@ -1,0 +1,17 @@
+.typewriterContainer {
+  display: inline-block;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.typewriterCursor {
+  display: inline-block;
+  background-color: transparent;
+  animation: blink 0.8s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

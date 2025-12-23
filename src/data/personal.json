@@ -1,0 +1,16 @@
+{
+  "firstname": "Mitia Leon Angelo",
+  "lastname": "RAJAONARISON",
+  "emails": "parajaonarison@gmail.com",
+  "gender": "Male",
+  "phones": ["0329228172", "0383724020"],
+  "birthDate": "1997-12-17",
+  "birthPlace": "Antsirabe I",
+  "address": "152HJ Ilanivato Ampasika",
+  "city": "Antananrivo",
+  "contry": "Madagascar",
+  "jobTitle": "Ingénieur Architecte",
+  "description": "\n<h2 class='title'>Ingénieur Architecte Logiciel</h2>\n\t<p class='description'>Passionné par la conception et le développement de solutions web et mobiles robustes, évolutives et performantes.</p>\n\t<p>Animé par les défis techniques, je conçois des architectures modernes adaptées aux besoins métiers.</p>\n\t<p>Spécialisé dans le développement Web et Mobile avec une approche orientée qualité, performance et maintenabilité.</p>\n\t<p>Diplômé d'une licence professionnelle en Génie Logiciel à l'<b>Institut d'Enseignement Supérieur d'Antsirabe Vakinankaratra</b>, je mets mes compétences au service de projets innovants.</p>",
+  "slogan": "« Ma passion pour l’architecture logicielle me permet de transformer des idées complexes en solutions fiables, modernes et évolutives. »",
+  "invitation": "N’hésitez pas à me contacter pour échanger sur vos projets, vos besoins techniques ou vos idées innovantes. Je suis disponible par message, appel ou via mes réseaux professionnels."
+}

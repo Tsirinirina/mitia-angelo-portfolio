@@ -1,0 +1,19 @@
+{
+  "id": "d418533c-2e38-40d8-8271-d11db8160649",
+  "title": "MiTendry",
+  "shortTitle": "MiTendry",
+  "description": "Transposez, trouvez vos accords et accordez votre guitare facilement, partout et à tout moment.",
+  "startDate": "2024-11-11",
+  "publishDate": "2024-10-30",
+  "technoList": ["REACT_NATIVE"],
+  "technoElements": ["DOCKER", "FIGMA", "ELEMENTOR", "YOOTHEME"],
+  "logoUri": "",
+  "clientInformation": "Entreprise",
+  "link": "http://lien-vers-la-page-a-copier.com",
+  "imagesLinks": ["https://i.ibb.co/fVpXTvJk/sc-idcom.png"],
+  "version": "1.00",
+  "status": "PROD",
+  "type": "Web Dev",
+  "createdAt": "2025-03-01",
+  "priority": "NORMAL"
+}
