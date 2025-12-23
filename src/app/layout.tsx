@@ -12,7 +12,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
-  title: "Tsirinirina Patrick RAJAONARISON| Porfolio",
+  title: "Mitia Angelo RAJAONARISON| Porfolio",
   description: "New Portfolio",
 };
 
