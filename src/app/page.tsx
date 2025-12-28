@@ -14,7 +14,7 @@ export default function Home() {
         style={{
           position: "relative",
           zIndex: 1,
-          color: "white",
+
           textAlign: "center",
         }}
       >
@@ -22,7 +22,7 @@ export default function Home() {
       </main>
       {/* <ScrollUp /> */}
       {/* <VantaBackground /> */}
-      <Particule />
+      {/* <Particule /> */}
     </div>
   );
 }

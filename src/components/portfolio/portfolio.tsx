@@ -82,10 +82,7 @@ export default function Portfolio() {
     getAllData();
   }, []);
   return (
-    <div
-      className={styles.container}
-      style={{ backgroundColor: isLoading ? "#111827" : "transparent" }}
-    >
+    <div className={styles.container} style={{ backgroundColor: "#ffffffff" }}>
       <NavbarUi />
       {isLoading && (
         <div className={styles.loadingContainer}>
