@@ -36,4 +36,6 @@ yarn-error.log*
 next-env.d.ts
 .env
 
+# source assets (heavy originals, videos, CV) — optimized copies live in /public
 PROJECT/
+

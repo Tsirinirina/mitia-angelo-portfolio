@@ -37,13 +37,54 @@ function Cover({ project }: { project: Project }) {
   );
 }
 
-/** Visuel d'un média (image ou vidéo) dans le carrousel. */
+/** ID YouTube depuis une URL (watch, youtu.be, embed) sinon null. */
+function youtubeId(src: string): string | null {
+  const m = src.match(
+    /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/
+  );
+  return m ? m[1] : null;
+}
+
+/** URL d'intégration (embed) pour YouTube/Vimeo, sinon null (=> fichier vidéo). */
+function videoEmbedUrl(src: string): string | null {
+  const yt = youtubeId(src);
+  if (yt) return `https://www.youtube-nocookie.com/embed/${yt}`;
+  const vm = src.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+  if (vm) return `https://player.vimeo.com/video/${vm[1]}`;
+  return null;
+}
+
+/** Visuel d'un média (image, vidéo intégrée YouTube/Vimeo, ou fichier) dans le carrousel. */
 function MediaVisual({ media, title }: { media: ProjectMedia; title: string }) {
-  if (media.src && media.kind === "video") {
+  if (media.kind === "video") {
+    if (!media.src) {
+      return (
+        <div className={styles.placeholder}>
+          <span className={styles.phCorner} />
+          <span className={styles.phLabel}>{media.label}</span>
+          <span className={styles.phTitle}>▶</span>
+          <span className={styles.phNote}>Vidéo à venir</span>
+        </div>
+      );
+    }
+    const embed = videoEmbedUrl(media.src);
+    if (embed) {
+      return (
+        <iframe
+          className={styles.embed}
+          src={embed}
+          title={`${title} — ${media.label}`}
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      );
+    }
     return (
       <video className={styles.media} src={media.src} poster={media.poster} controls playsInline />
     );
   }
+
   if (media.src) {
     // eslint-disable-next-line @next/next/no-img-element
     return <img src={media.src} alt={`${title} — ${media.label}`} className={styles.media} />;
@@ -52,12 +93,35 @@ function MediaVisual({ media, title }: { media: ProjectMedia; title: string }) {
     <div className={styles.placeholder}>
       <span className={styles.phCorner} />
       <span className={styles.phLabel}>{media.label}</span>
-      <span className={styles.phTitle}>{media.kind === "video" ? "▶" : title}</span>
-      <span className={styles.phNote}>
-        {media.kind === "video" ? "Vidéo à venir" : "Rendu à venir"}
-      </span>
+      <span className={styles.phTitle}>{title}</span>
+      <span className={styles.phNote}>Rendu à venir</span>
     </div>
   );
+}
+
+/** Contenu d'une miniature : image, vignette vidéo YouTube, ou placeholder. */
+function ThumbContent({ media }: { media: ProjectMedia }) {
+  if (media.kind === "image" && media.src) {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={media.src} alt={media.label} />;
+  }
+  if (media.kind === "video" && media.src) {
+    const yt = youtubeId(media.src);
+    const thumbSrc = yt
+      ? `https://img.youtube.com/vi/${yt}/hqdefault.jpg`
+      : media.poster;
+    if (thumbSrc) {
+      return (
+        <span className={styles.thumbVideo}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={thumbSrc} alt={media.label} />
+          <span className={styles.thumbPlay}>▶</span>
+        </span>
+      );
+    }
+    return <span className={styles.thumbPh}>▶</span>;
+  }
+  return <span className={styles.thumbPh}>{media.kind === "video" ? "▶" : "◱"}</span>;
 }
 
 /** Carrousel coulissant plein écran de tous les médias d'un projet. */
@@ -135,12 +199,7 @@ function MediaSlider({
                 onClick={() => setI(idx)}
                 aria-label={m.label}
               >
-                {m.src && m.kind === "image" ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={m.src} alt={m.label} />
-                ) : (
-                  <span className={styles.thumbPh}>{m.kind === "video" ? "▶" : "◱"}</span>
-                )}
+                <ThumbContent media={m} />
               </button>
             ))}
           </div>
