@@ -7,15 +7,28 @@
    (ex: "/projects/villa-01.jpg" — fichier dans /public/projects).
    ============================================================ */
 
+export type ProjectStatus = "Terminé" | "En cours" | "Concept";
+
+/** Un média du projet (rendu). `src` vide => placeholder élégant. */
+export type ProjectMedia = {
+  kind: "image" | "video";
+  label: string; // type du rendu : "Rez-de-chaussée", "Plan 3D", "Vidéo"…
+  src: string; // "/projects/villa/plan-3d.jpg"  ou  ""  => placeholder
+  poster?: string; // vignette pour une vidéo (optionnel)
+};
+
 export type Project = {
   id: string;
   title: string;
   category: string; // ex: "Résidentiel", "Tertiaire", "Intérieur"
+  status: ProjectStatus; // état d'avancement
+  createdAt: string; // date de création au format ISO (ex: "2025-03-12")
   year: string;
   location: string;
   description: string;
-  tools: string[]; // logiciels utilisés
-  image: string; // "" => placeholder
+  tools: string[]; // logiciels de conception utilisés
+  cover: string; // image d'illustration principale ("" => placeholder)
+  media: ProjectMedia[]; // liste des rendus (images + vidéos) typés
   featured?: boolean;
 };
 
@@ -98,68 +111,110 @@ export const projects: Project[] = [
     id: "villa-contemporaine",
     title: "Villa Contemporaine",
     category: "Résidentiel",
+    status: "Terminé",
+    createdAt: "2025-03-12",
     year: "2025",
     location: "Antananarivo",
     description:
       "Maison individuelle sur deux niveaux jouant sur les pleins et les vides. Grandes ouvertures, terrasse en porte-à-faux et volume épuré en béton et bois.",
     tools: ["ArchiCAD", "Rendu 3D"],
-    image: "",
+    cover: "",
+    media: [
+      { kind: "image", label: "Vue principale", src: "" },
+      { kind: "image", label: "Rez-de-chaussée", src: "" },
+      { kind: "image", label: "Plan 3D", src: "" },
+      { kind: "image", label: "Façade nuit", src: "" },
+      { kind: "video", label: "Vidéo de présentation", src: "" },
+    ],
     featured: true,
   },
   {
     id: "immeuble-mixte",
     title: "Immeuble Mixte R+4",
     category: "Tertiaire",
+    status: "En cours",
+    createdAt: "2024-11-05",
     year: "2024",
     location: "Analakely",
     description:
       "Programme mixte commerces / bureaux avec façade rythmée par des brise-soleil verticaux. Étude d'implantation et modélisation complète du gros œuvre.",
     tools: ["ArchiCAD"],
-    image: "",
+    cover: "",
+    media: [
+      { kind: "image", label: "Perspective rue", src: "" },
+      { kind: "image", label: "Plan de masse", src: "" },
+      { kind: "image", label: "Coupe", src: "" },
+    ],
   },
   {
     id: "amenagement-interieur",
     title: "Aménagement Intérieur",
     category: "Intérieur",
+    status: "Terminé",
+    createdAt: "2024-06-20",
     year: "2024",
     location: "Ivandry",
     description:
       "Réaménagement d'un séjour ouvert : cuisine, salle à manger et coin salon. Ambiance chaleureuse en teintes naturelles, éclairage indirect.",
     tools: ["SketchUp", "Rendu 3D"],
-    image: "",
+    cover: "",
+    media: [
+      { kind: "image", label: "Séjour", src: "" },
+      { kind: "image", label: "Cuisine", src: "" },
+      { kind: "image", label: "Plan 3D", src: "" },
+    ],
   },
   {
     id: "villa-piscine",
     title: "Villa avec Piscine",
     category: "Résidentiel",
+    status: "Terminé",
+    createdAt: "2023-09-01",
     year: "2023",
     location: "Ambohibao",
     description:
       "Résidence de plain-pied ouverte sur un patio et un bassin. Continuité intérieur-extérieur, larges baies vitrées et pergola bioclimatique.",
     tools: ["SketchUp", "ArchiCAD"],
-    image: "",
+    cover: "",
+    media: [
+      { kind: "image", label: "Vue piscine", src: "" },
+      { kind: "image", label: "Rez-de-chaussée", src: "" },
+      { kind: "image", label: "Patio", src: "" },
+    ],
   },
   {
     id: "boutique-concept",
     title: "Boutique Concept",
     category: "Commercial",
+    status: "Concept",
+    createdAt: "2023-04-15",
     year: "2023",
     location: "Antaninarenina",
     description:
       "Concept-store en rez-de-chaussée : mise en valeur des produits par un parcours client fluide et un jeu de matériaux bruts et de laiton.",
     tools: ["SketchUp", "Rendu 3D"],
-    image: "",
+    cover: "",
+    media: [
+      { kind: "image", label: "Vitrine", src: "" },
+      { kind: "image", label: "Intérieur", src: "" },
+    ],
   },
   {
     id: "pavillon-jardin",
     title: "Pavillon de Jardin",
     category: "Paysage",
+    status: "Terminé",
+    createdAt: "2022-07-10",
     year: "2022",
     location: "Talatamaty",
     description:
       "Petite structure légère en bois lamellé pour recevoir et se détendre. Toiture inclinée, ossature apparente et intégration paysagère douce.",
     tools: ["SketchUp"],
-    image: "",
+    cover: "",
+    media: [
+      { kind: "image", label: "Perspective", src: "" },
+      { kind: "image", label: "Plan 3D", src: "" },
+    ],
   },
 ];
 
