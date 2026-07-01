@@ -60,8 +60,14 @@ function MediaVisual({ media, title }: { media: ProjectMedia; title: string }) {
   );
 }
 
-/** Carrousel coulissant de tous les médias d'un projet. */
-function MediaSlider({ project }: { project: Project }) {
+/** Carrousel coulissant plein écran de tous les médias d'un projet. */
+function MediaSlider({
+  project,
+  info,
+}: {
+  project: Project;
+  info?: React.ReactNode;
+}) {
   const media: ProjectMedia[] = project.media.length
     ? project.media
     : [{ kind: "image", label: project.category, src: project.cover }];
@@ -118,25 +124,28 @@ function MediaSlider({ project }: { project: Project }) {
         )}
       </div>
 
-      {count > 1 && (
-        <div className={styles.thumbs}>
-          {media.map((m, idx) => (
-            <button
-              key={idx}
-              className={`${styles.thumb} ${idx === i ? styles.thumbActive : ""}`}
-              onClick={() => setI(idx)}
-              aria-label={m.label}
-            >
-              {m.src && m.kind === "image" ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={m.src} alt={m.label} />
-              ) : (
-                <span className={styles.thumbPh}>{m.kind === "video" ? "▶" : "◱"}</span>
-              )}
-            </button>
-          ))}
-        </div>
-      )}
+      <div className={styles.bottomBar}>
+        {info}
+        {count > 1 && (
+          <div className={styles.thumbs}>
+            {media.map((m, idx) => (
+              <button
+                key={idx}
+                className={`${styles.thumb} ${idx === i ? styles.thumbActive : ""}`}
+                onClick={() => setI(idx)}
+                aria-label={m.label}
+              >
+                {m.src && m.kind === "image" ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={m.src} alt={m.label} />
+                ) : (
+                  <span className={styles.thumbPh}>{m.kind === "video" ? "▶" : "◱"}</span>
+                )}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -194,41 +203,46 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Lightbox : carrousel de médias + card d'infos */}
+      {/* Lightbox plein écran : carrousel de médias + infos en surimpression */}
       {active && (
         <div className={styles.modal} onClick={() => setActive(null)}>
           <button className={styles.close} aria-label="Fermer">
             ✕
           </button>
-          <div className={styles.modalInner} onClick={(e) => e.stopPropagation()}>
-            <div className={styles.modalVisual}>
-              <MediaSlider key={active.id} project={active} />
-            </div>
+          <div className={styles.stage} onClick={(e) => e.stopPropagation()}>
+            <MediaSlider
+              key={active.id}
+              project={active}
+              info={
+                <div className={styles.overlayInfo}>
+                  <div className={styles.modalTop}>
+                    <span
+                      className={`${styles.status} ${statusClass[active.status] ?? ""}`}
+                    >
+                      {active.status}
+                    </span>
+                    <span className={styles.date}>
+                      Créé le {formatDate(active.createdAt)}
+                    </span>
+                  </div>
 
-            <div className={styles.modalText}>
-              <div className={styles.modalTop}>
-                <span className={`${styles.status} ${statusClass[active.status] ?? ""}`}>
-                  {active.status}
-                </span>
-                <span className={styles.date}>Créé le {formatDate(active.createdAt)}</span>
-              </div>
+                  <p className="eyebrow">
+                    {active.category} — {active.year}
+                  </p>
+                  <h3 className={styles.modalTitle}>{active.title}</h3>
+                  <p className={styles.modalLoc}>{active.location}</p>
+                  <p className={styles.modalDesc}>{active.description}</p>
 
-              <p className="eyebrow">
-                {active.category} — {active.year}
-              </p>
-              <h3 className={styles.modalTitle}>{active.title}</h3>
-              <p className={styles.modalLoc}>{active.location}</p>
-              <p className={styles.modalDesc}>{active.description}</p>
-
-              <p className={styles.toolsLabel}>Logiciels de conception</p>
-              <div className={styles.tools}>
-                {active.tools.map((t) => (
-                  <span key={t} className={styles.tool}>
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
+                  <div className={styles.tools}>
+                    {active.tools.map((t) => (
+                      <span key={t} className={styles.tool}>
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              }
+            />
           </div>
         </div>
       )}
