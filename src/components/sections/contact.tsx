@@ -60,8 +60,10 @@ export default function Contact() {
                 <span>{profile.phones.join(" · ")}</span>
               </li>
               <li>
-                <span className={styles.dlabel}>Localisation</span>
-                <span>{profile.location}</span>
+                <span className={styles.dlabel}>Adresse</span>
+                <span>
+                  {profile.address} — {profile.location}
+                </span>
               </li>
             </ul>
 

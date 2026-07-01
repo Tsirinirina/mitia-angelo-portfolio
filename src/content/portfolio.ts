@@ -55,55 +55,91 @@ export type Tool = {
 export const profile = {
   firstName: "Mitia Leon Angelo",
   lastName: "RAJAONARISON",
-  fullName: "Mitia Leon Angelo RAJAONARISON",
-  title: "Architecte · Concepteur 3D",
-  tagline: "Concevoir des espaces qui ont du sens.",
+  fullName: "RAJAONARISON Mitia Leon Angelo",
+  title: "Dessinateur Projeteur",
+  subtitle: "Architecture & Paysagisme",
+  tagline: "Du plan technique au rendu 3D photoréaliste.",
   location: "Antananarivo, Madagascar",
-  email: "parajaonarison@gmail.com",
-  phones: ["+261 32 92 281 72", "+261 38 37 240 20"],
-  // TODO: ajustez ce résumé à votre parcours réel
+  address: "Lot IVY 152 H Ilanivato, Ampasika",
+  email: "rajaonarisonmitialeonangelo@gmail.com",
+  phones: ["034 59 937 48", "033 23 004 00"],
+  licences: "Permis A / B",
   intro:
-    "Architecte passionné par la conception d'espaces contemporains, je transforme les idées en projets tangibles à travers la modélisation et le rendu 3D. De l'esquisse au rendu photoréaliste, je conçois des bâtiments et des aménagements qui allient esthétique, fonction et lumière.",
+    "Étudiant diplômé en Architecture et Paysagisme, passionné par la conception et la représentation graphique des projets. Maîtrisant les outils CAO/DAO, la modélisation 3D et la réalisation de documents techniques, je souhaite intégrer une équipe afin de développer mes compétences en dessin architectural, conception et suivi de projet.",
   about: [
-    "Mon travail commence par une intention : comprendre un lieu, un usage, une lumière — puis lui donner forme. J'aime le moment où un volume abstrait devient un espace que l'on peut habiter du regard.",
-    "Je maîtrise la chaîne complète de la conception 3D : modélisation sous ArchiCAD et SketchUp, mise en scène et rendu, jusqu'aux planches de présentation destinées aux clients et aux concours.",
-    "Ce portfolio est une exposition de mes réalisations : chaque projet raconte une recherche de proportion, de matière et d'ambiance.",
+    "Titulaire d'une Licence en Architecture et Paysagisme de l'Université de Vakinankaratra (Antsirabe), j'ai construit mon parcours depuis un BEP en Génie Civil jusqu'à un Baccalauréat technique CCBTP.",
+    "De la réalisation de plans de maisons d'habitation à la conception et la modélisation complète de bâtiments, je conçois des projets clairs, techniques et fidèles aux besoins des clients — avec une attention particulière au respect des normes.",
+    "Ce portfolio rassemble mes réalisations : plans, modélisations 3D et rendus photoréalistes issus des logiciels CAO/DAO que je pratique au quotidien.",
   ],
   stats: [
-    { value: "20+", label: "Projets modélisés" },
-    { value: "5", label: "Années de pratique 3D" },
-    { value: "100%", label: "Rendus sur mesure" },
+    { value: "Bac+3", label: "Licence Archi. & Paysagisme" },
+    { value: "3+", label: "Projets & expériences" },
+    { value: "6+", label: "Logiciels maîtrisés" },
   ],
 };
 
 export const socials = [
-  { label: "Email", href: "mailto:parajaonarison@gmail.com" },
-  { label: "LinkedIn", href: "#" }, // TODO
-  { label: "Behance", href: "#" }, // TODO
-  { label: "Instagram", href: "#" }, // TODO
+  { label: "Email", href: "mailto:rajaonarisonmitialeonangelo@gmail.com" },
+  { label: "LinkedIn", href: "#" }, // TODO: ajoutez votre profil
+  { label: "Behance", href: "#" }, // TODO: ajoutez votre portfolio en ligne
 ];
 
 export const tools: Tool[] = [
   {
     name: "ArchiCAD",
-    level: "Expert",
-    detail: "Modélisation BIM, documentation technique, plans et coupes.",
+    level: "Maîtrisé",
+    detail: "Conception et modélisation de bâtiments, plans et documents techniques.",
   },
   {
     name: "SketchUp",
-    level: "Expert",
-    detail: "Conception rapide de volumes, étude de masse et d'aménagement.",
+    level: "Maîtrisé",
+    detail: "Modélisation 3D rapide, étude de volumes et d'aménagement.",
   },
   {
-    name: "Rendu 3D",
-    level: "Avancé",
-    detail: "Mise en scène, matériaux, éclairage et rendus photoréalistes.",
+    name: "AutoCAD",
+    level: "Maîtrisé",
+    detail: "Dessin technique CAO/DAO, plans d'exécution et détails.",
   },
   {
-    name: "Dessin technique",
+    name: "Lumion",
     level: "Avancé",
-    detail: "Plans d'exécution, détails constructifs et mises au propre.",
+    detail: "Mise en scène et rendus photoréalistes des projets.",
   },
+  {
+    name: "V-Ray",
+    level: "Intermédiaire",
+    detail: "Rendu réaliste : matériaux, lumière et ambiances.",
+  },
+  {
+    name: "Microsoft Office",
+    level: "Maîtrisé",
+    detail: "Word, PowerPoint et Excel pour la documentation et le suivi.",
+  },
+];
+
+export type Language = { name: string; level: string };
+export const languages: Language[] = [
+  { name: "Malagasy", level: "Langue maternelle" },
+  { name: "Français", level: "Courant — écoute et écrit" },
+  { name: "Anglais", level: "Niveau scolaire" },
+];
+
+export const softSkills: string[] = [
+  "Travail en équipe",
+  "Travail sous pression",
+  "Endurance sur les grands projets",
+  "Écoute et conseil client",
+  "Dessin technique à main levée",
+  "Autonomie",
+];
+
+export const interests: string[] = [
+  "Basket-ball",
+  "Architecture & design",
+  "Modélisation 3D",
+  "Dessin technique",
+  "Voyage",
+  "Jeux de stratégie",
 ];
 
 export const projects: Project[] = [
@@ -219,30 +255,46 @@ export const projects: Project[] = [
 ];
 
 export const experiences: Experience[] = [
-  // TODO: remplacez par vos expériences réelles en architecture
   {
-    company: "Agence / Freelance",
-    role: "Architecte · Concepteur 3D",
-    period: "2023 — Présent",
-    location: "Antananarivo",
+    company: "Société A.I.DE — Antsirabe (Stage)",
+    role: "Chargé de conception et modélisation d'un bâtiment",
+    period: "Sept. 2024 — Nov. 2024",
+    location: "Antsirabe",
     description:
-      "Conception et modélisation 3D de projets résidentiels et tertiaires, de l'esquisse aux planches de présentation client.",
+      "Conception et modélisation d'un bâtiment en équipe. Travail sous pression sur un grand projet, avec maîtrise des logiciels de modélisation et de rendu photoréaliste (CAO/DAO, Lumion).",
   },
   {
-    company: "Bureau d'études",
-    role: "Dessinateur-projeteur",
-    period: "2021 — 2023",
+    company: "Projet architectural individuel",
+    role: "Dessinateur projeteur",
+    period: "2023",
     location: "Antananarivo",
     description:
-      "Réalisation de plans techniques, coupes et perspectives 3D en appui aux architectes du bureau.",
+      "Réalisation du plan d'une maison d'habitation : écoute et conseil client, dessin technique et conception. Projet mené en autonomie, du plan à la finalisation.",
+  },
+  {
+    company: "Projet individuel",
+    role: "Dessinateur projeteur",
+    period: "2021",
+    location: "Antananarivo",
+    description:
+      "Réalisation du plan d'un bâtiment : accompagnement du client sur le respect des normes et bonne maîtrise du dessin technique.",
   },
 ];
 
 export const education: Education[] = [
-  // TODO: renseignez votre formation réelle
   {
-    school: "Établissement d'enseignement supérieur",
-    degree: "Formation en Architecture / Bâtiment",
-    period: "20XX — 20XX",
+    school: "Université de Vakinankaratra, Antsirabe",
+    degree: "Licence en Architecture et Paysagisme",
+    period: "2025",
+  },
+  {
+    school: "LTP Mantasoa",
+    degree: "Baccalauréat technique CCBTP",
+    period: "2022",
+  },
+  {
+    school: "LTP GC Mahamasina",
+    degree: "BEP — Génie Civil",
+    period: "2020",
   },
 ];

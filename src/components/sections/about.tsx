@@ -1,4 +1,10 @@
-import { profile, tools } from "@/content/portfolio";
+import {
+  profile,
+  tools,
+  languages,
+  softSkills,
+  interests,
+} from "@/content/portfolio";
 import Reveal from "./reveal";
 import styles from "./about.module.css";
 
@@ -31,7 +37,7 @@ export default function About() {
           </Reveal>
 
           <Reveal className={styles.right} delay={120}>
-            <p className="eyebrow">Outils & expertise</p>
+            <p className="eyebrow">Logiciels & expertise</p>
             <ul className={styles.tools}>
               {tools.map((t) => (
                 <li key={t.name} className={styles.tool}>
@@ -43,6 +49,34 @@ export default function About() {
                 </li>
               ))}
             </ul>
+
+            <p className={`eyebrow ${styles.blockLabel}`}>Langues</p>
+            <ul className={styles.langs}>
+              {languages.map((l) => (
+                <li key={l.name} className={styles.lang}>
+                  <span className={styles.langName}>{l.name}</span>
+                  <span className={styles.langLevel}>{l.level}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p className={`eyebrow ${styles.blockLabel}`}>Qualités</p>
+            <div className={styles.tags}>
+              {softSkills.map((s) => (
+                <span key={s} className={styles.tag}>
+                  {s}
+                </span>
+              ))}
+            </div>
+
+            <p className={`eyebrow ${styles.blockLabel}`}>Centres d&apos;intérêt</p>
+            <div className={styles.tags}>
+              {interests.map((s) => (
+                <span key={s} className={`${styles.tag} ${styles.tagSoft}`}>
+                  {s}
+                </span>
+              ))}
+            </div>
           </Reveal>
         </div>
       </div>

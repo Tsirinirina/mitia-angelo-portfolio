@@ -45,13 +45,53 @@
 }
 
 /* Colonne outils */
-.right {
-  position: sticky;
-  top: 100px;
-}
 .tools {
   margin-top: 1.4rem;
   border-top: 1px solid var(--line);
+}
+.blockLabel {
+  display: block;
+  margin-top: 2.6rem;
+}
+.langs {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 0.9rem;
+}
+.lang {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+.langName {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--text);
+}
+.langLevel {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: right;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+}
+.tag {
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  color: var(--accent-soft);
+  border: 1px solid var(--line-strong);
+  padding: 0.4rem 0.8rem;
+  border-radius: 2px;
+}
+.tagSoft {
+  color: var(--text-soft);
 }
 .tool {
   padding: 1.2rem 0;

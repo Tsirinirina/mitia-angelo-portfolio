@@ -8,7 +8,9 @@ export default function Hero() {
       <div className={styles.gridlines} aria-hidden />
 
       <div className={`container ${styles.inner}`}>
-        <p className={`eyebrow ${styles.eyebrow}`}>{profile.title}</p>
+        <p className={`eyebrow ${styles.eyebrow}`}>
+          {profile.title} — {profile.subtitle}
+        </p>
 
         <h1 className={`display ${styles.name}`}>
           <span>{profile.firstName}</span>
@@ -20,7 +22,7 @@ export default function Hero() {
         <div className={styles.meta}>
           <span>{profile.location}</span>
           <span className={styles.dot} />
-          <span>ArchiCAD · SketchUp · Rendu 3D</span>
+          <span>AutoCAD · ArchiCAD · SketchUp · Lumion</span>
         </div>
 
         <div className={styles.actions}>
