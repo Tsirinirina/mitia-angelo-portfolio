@@ -1,26 +1,19 @@
-import Image from "next/image";
-import style from "./page.module.css";
+import Link from "next/link";
+import styles from "./status.module.css";
 
-function NotFoundPage() {
+export default function NotFoundPage() {
   return (
-    <div className={style.errorContainer}>
-      <div className={style.errorContent}>
-        <Image
-          src={`/image/not-found.png`}
-          alt="Image"
-          className={style.image}
-          width={300}
-          height={300}
-          objectFit="cover"
-        />
-        <div className={style.errorMessage}>
-          <div>Page non trouvé</div>
-          <div>Veuillez consulter le service technique.</div>
-          <a href="/">Revenir a la page d&apos; accueil</a>
-        </div>
+    <div className={styles.wrap}>
+      <div className={styles.inner}>
+        <p className={styles.code}>404</p>
+        <h1 className={styles.title}>Page introuvable</h1>
+        <p className={styles.text}>
+          La page que vous cherchez n&apos;existe pas ou a été déplacée.
+        </p>
+        <Link href="/" className={styles.link}>
+          Retour à l&apos;accueil
+        </Link>
       </div>
     </div>
   );
 }
-
-export default NotFoundPage;

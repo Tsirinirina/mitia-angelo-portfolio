@@ -1,3 +1,39 @@
+/* ============================================================
+   DESIGN SYSTEM — Portfolio Architecte · Sombre / Cinématique
+   ============================================================ */
+
+:root {
+  /* Fonds */
+  --bg: #0a0a0b;
+  --bg-2: #101013;
+  --surface: #16161a;
+  --surface-2: #1d1d22;
+
+  /* Texte */
+  --text: #f3f1ec;
+  --text-soft: #cbc8c1;
+  --muted: #8c8880;
+  --muted-2: #605d57;
+
+  /* Accent bronze / sable (chaleur architecturale) */
+  --accent: #c9a25f;
+  --accent-soft: #e0c48c;
+  --accent-dim: rgba(201, 162, 95, 0.14);
+
+  /* Lignes & voiles */
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --overlay: rgba(8, 8, 9, 0.72);
+
+  /* Rythme */
+  --maxw: 1240px;
+  --gutter: clamp(20px, 5vw, 72px);
+  --radius: 4px;
+
+  --font-display: var(--font-display, "Cormorant Garamond", Georgia, serif);
+  --font-sans: var(--font-sans, "Inter", system-ui, sans-serif);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -6,19 +42,126 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 88px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  user-select: none;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
 ul {
-  list-style-type: none;
-  outline: none;
+  list-style: none;
 }
+
 a {
   text-decoration: none;
-  color: var(--primary-color);
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--accent);
+  color: #0a0a0b;
+}
+
+/* ---------- Typographie utilitaire ---------- */
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: clamp(72px, 12vh, 160px);
+  position: relative;
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: clamp(32px, 5vw, 64px);
+}
+
+.section-head .index {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--muted-2);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.015em;
+}
+
+/* ---------- Grain / vignette cinématique ---------- */
+.cine-grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    transparent 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  mix-blend-mode: multiply;
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

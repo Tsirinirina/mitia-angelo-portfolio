@@ -1,29 +1,20 @@
 "use client";
-import Image from "next/image";
-import style from "./page.module.css";
 
-const error = ({}) => {
+import styles from "./status.module.css";
+
+export default function Error({ reset }: { reset: () => void }) {
   return (
-    <div className={style.errorContainer}>
-      <div className={style.errorContent}>
-        <Image
-          src={`/image/error.png`}
-          alt="Image"
-          className={style.image}
-          width={300}
-          height={300}
-          objectFit="cover"
-        />
-        <div className={style.errorMessage}>
-          <div>Une erreur est survenue.</div>
-          <div>
-            S&apos; il vous plaît, veuillez contacter le service technique.
-          </div>
-          <a href="/">Revenir a la page d&apos; accueil</a>
-        </div>
+    <div className={styles.wrap}>
+      <div className={styles.inner}>
+        <p className={styles.code}>Oups</p>
+        <h1 className={styles.title}>Une erreur est survenue</h1>
+        <p className={styles.text}>
+          Quelque chose s&apos;est mal passé. Vous pouvez réessayer.
+        </p>
+        <button className={styles.link} onClick={reset}>
+          Réessayer
+        </button>
       </div>
     </div>
   );
-};
-
-export default error;
+}

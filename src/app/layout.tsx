@@ -1,19 +1,36 @@
-/* eslint-disable @next/next/no-sync-scripts */
 import type { Metadata } from "next";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
-import "../styles/color.css";
-import "../styles/border.css";
-import "../styles/spacing.css";
-import "../styles/flexbox.css";
-import "../styles/shadow.css";
-import "../styles/fonts.css";
-import { ThemeProvider } from "next-themes";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import { profile } from "@/content/portfolio";
+
+const display = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const sans = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Mitia Angelo RAJAONARISON| Porfolio",
-  description: "New Portfolio",
+  title: `${profile.fullName} — ${profile.title}`,
+  description: `Portfolio d'architecture de ${profile.fullName}. ${profile.tagline}`,
+  keywords: [
+    "architecte",
+    "architecture",
+    "ArchiCAD",
+    "SketchUp",
+    "rendu 3D",
+    "Madagascar",
+    profile.fullName,
+  ],
 };
 
 export default function RootLayout({
@@ -22,27 +39,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link
-          href="https://fonts.cdnfonts.com/css/inconsolata-2"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.cdnfonts.com/css/source-code-pro"
-          rel="stylesheet"
-        />
-
-        <link
-          href="https://fonts.cdnfonts.com/css/lexend-deca"
-          rel="stylesheet"
-        />
-        <link href="https://fonts.cdnfonts.com/css/lato" rel="stylesheet" />
-
-        <link href="https://fonts.cdnfonts.com/css/gabarito" rel="stylesheet" />
-      </head>
-      <body className={``}>
-        <ThemeProvider defaultTheme="dark">{children}</ThemeProvider>
+    <html lang="fr" className={`${display.variable} ${sans.variable}`}>
+      <body className="cine-grain">
+        {children}
         <Analytics />
         <SpeedInsights />
       </body>

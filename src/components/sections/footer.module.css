@@ -1,0 +1,32 @@
+.footer {
+  border-top: 1px solid var(--line);
+  padding-block: 2.4rem;
+}
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--text);
+}
+.copy {
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.top {
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s;
+}
+.top:hover {
+  color: var(--accent-soft);
+}

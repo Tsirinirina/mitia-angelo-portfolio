@@ -1,0 +1,285 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(16px, 2.4vw, 34px);
+}
+.featured {
+  grid-column: 1 / -1;
+}
+
+.card {
+  width: 100%;
+}
+.cardBtn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  padding: 0;
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.featured .frame {
+  aspect-ratio: 21 / 9;
+}
+
+.img,
+.placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.7s ease;
+}
+.cardBtn:hover .img,
+.cardBtn:hover .placeholder {
+  transform: scale(1.05);
+}
+
+/* Placeholder cinématique (dégradé + trame) */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  background: radial-gradient(
+      120% 120% at 30% 0%,
+      rgba(201, 162, 95, 0.14),
+      transparent 55%
+    ),
+    linear-gradient(145deg, #17171b, #101013);
+}
+.placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.6;
+  mask-image: radial-gradient(80% 80% at 50% 50%, #000 30%, transparent 80%);
+}
+.phCorner {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 26px;
+  height: 26px;
+  border-top: 1px solid var(--accent);
+  border-left: 1px solid var(--accent);
+  opacity: 0.7;
+}
+.phLabel {
+  font-size: 0.66rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  z-index: 1;
+}
+.phTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  color: var(--text-soft);
+  z-index: 1;
+  text-align: center;
+  padding-inline: 1rem;
+}
+.phNote {
+  font-size: 0.66rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  z-index: 1;
+}
+
+.year {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--text);
+  background: rgba(10, 10, 11, 0.5);
+  backdrop-filter: blur(6px);
+  padding: 0.3rem 0.6rem;
+  border-radius: 2px;
+  z-index: 2;
+}
+.view {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #0a0a0b;
+  background: var(--accent);
+  padding: 0.5rem 0.9rem;
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 2;
+}
+.cardBtn:hover .view {
+  opacity: 1;
+  transform: none;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.1rem 0.2rem 0;
+  border-top: 1px solid transparent;
+}
+.title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.cardBtn:hover .title {
+  color: var(--accent-soft);
+}
+.sub {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ---------- Lightbox ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--overlay);
+  backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  padding: var(--gutter);
+  animation: fade 0.3s ease;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+.close {
+  position: fixed;
+  top: 24px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: rgba(20, 20, 22, 0.8);
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 101;
+  transition: border-color 0.3s, color 0.3s;
+}
+.close:hover {
+  border-color: var(--accent);
+  color: var(--accent-soft);
+}
+.modalInner {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: clamp(20px, 3vw, 48px);
+  max-width: 1100px;
+  width: 100%;
+  max-height: 86vh;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  animation: pop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes pop {
+  from {
+    transform: translateY(24px) scale(0.98);
+    opacity: 0;
+  }
+}
+.modalVisual {
+  position: relative;
+  min-height: 320px;
+}
+.modalText {
+  padding: clamp(24px, 3vw, 48px) clamp(24px, 3vw, 44px) clamp(24px, 3vw, 48px) 0;
+  align-self: center;
+}
+.modalTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 500;
+  margin-top: 0.8rem;
+  line-height: 1.05;
+}
+.modalLoc {
+  color: var(--muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.4rem;
+}
+.modalDesc {
+  color: var(--text-soft);
+  margin-top: 1.4rem;
+  font-size: 0.98rem;
+}
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.8rem;
+}
+.tool {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  border: 1px solid var(--line-strong);
+  padding: 0.4rem 0.8rem;
+  border-radius: 2px;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .featured .frame,
+  .frame {
+    aspect-ratio: 16 / 10;
+  }
+  .modalInner {
+    grid-template-columns: 1fr;
+    max-height: 88vh;
+    overflow-y: auto;
+  }
+  .modalVisual {
+    min-height: 240px;
+    aspect-ratio: 16 / 10;
+  }
+  .modalText {
+    padding: 0 clamp(20px, 6vw, 32px) clamp(28px, 8vw, 40px);
+  }
+}

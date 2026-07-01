@@ -1,0 +1,204 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Fond dégradé cinématique animé */
+.bg {
+  position: absolute;
+  inset: -20%;
+  z-index: -2;
+  background: radial-gradient(
+      60% 60% at 20% 15%,
+      rgba(201, 162, 95, 0.16),
+      transparent 60%
+    ),
+    radial-gradient(50% 50% at 85% 85%, rgba(70, 90, 120, 0.14), transparent 60%),
+    linear-gradient(180deg, #0b0b0d 0%, #0a0a0b 60%, #0a0a0b 100%);
+  animation: drift 22s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  from {
+    transform: scale(1) translate(0, 0);
+  }
+  to {
+    transform: scale(1.08) translate(-2%, -1.5%);
+  }
+}
+
+/* Trame de plan d'architecte */
+.gridlines {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(120% 90% at 70% 30%, #000 20%, transparent 75%);
+  opacity: 0.5;
+}
+
+.inner {
+  padding-top: 96px;
+}
+
+.eyebrow {
+  margin-bottom: 1.6rem;
+  opacity: 0;
+  animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+.name {
+  font-size: clamp(3.4rem, 12vw, 9.5rem);
+  margin-bottom: 1.4rem;
+}
+.name span {
+  display: block;
+  opacity: 0;
+  animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.name span:first-child {
+  animation-delay: 0.18s;
+}
+.last {
+  color: var(--accent-soft);
+  font-style: italic;
+  animation-delay: 0.32s !important;
+}
+
+.tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.6vw, 1.9rem);
+  color: var(--text-soft);
+  max-width: 34ch;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.44s forwards;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2.6rem;
+  opacity: 0;
+  animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.56s forwards;
+  flex-wrap: wrap;
+}
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.68s forwards;
+}
+.cta,
+.ctaGhost {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.95rem 1.8rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+.cta {
+  background: var(--accent);
+  color: #0a0a0b;
+  font-weight: 500;
+}
+.cta:hover {
+  transform: translateY(-3px);
+  background: var(--accent-soft);
+}
+.ctaGhost {
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+}
+.ctaGhost:hover {
+  border-color: var(--accent);
+  color: var(--accent-soft);
+  transform: translateY(-3px);
+}
+
+.scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.scrollLine {
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(var(--accent), transparent);
+  animation: pulse 2.2s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 760px) {
+  .scroll {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg,
+  .scrollLine {
+    animation: none;
+  }
+  .eyebrow,
+  .name span,
+  .tagline,
+  .meta,
+  .actions {
+    opacity: 1;
+    animation: none;
+  }
+}

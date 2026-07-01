@@ -1,28 +1,23 @@
-import Portfolio from "@/components/portfolio/portfolio";
-import styles from "./page.module.css";
-import NavbarUi from "@/components/ui/navbar/navbar.ui";
-import ScrollUp from "@/components/scroll-up/scroll-up";
-import VantaBackground from "@/components/vantabg/vantabg";
-import { tsParticles } from "tsparticles-engine";
-import Particule from "@/components/particules/particules";
+import Nav from "@/components/sections/nav";
+import Hero from "@/components/sections/hero";
+import Projects from "@/components/sections/projects";
+import About from "@/components/sections/about";
+import Journey from "@/components/sections/journey";
+import Contact from "@/components/sections/contact";
+import Footer from "@/components/sections/footer";
 
 export default function Home() {
   return (
-    <div className={`${styles.page} lato`}>
-      <main
-        className={styles.main}
-        style={{
-          position: "relative",
-          zIndex: 1,
-
-          textAlign: "center",
-        }}
-      >
-        <Portfolio />
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <Projects />
+        <About />
+        <Journey />
+        <Contact />
       </main>
-      {/* <ScrollUp /> */}
-      {/* <VantaBackground /> */}
-      {/* <Particule /> */}
-    </div>
+      <Footer />
+    </>
   );
 }
