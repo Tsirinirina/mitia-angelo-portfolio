@@ -14,11 +14,11 @@
   z-index: -2;
   background: radial-gradient(
       60% 60% at 20% 15%,
-      rgba(201, 162, 95, 0.16),
+      rgba(179, 129, 47, 0.14),
       transparent 60%
     ),
-    radial-gradient(50% 50% at 85% 85%, rgba(70, 90, 120, 0.14), transparent 60%),
-    linear-gradient(180deg, #0b0b0d 0%, #0a0a0b 60%, #0a0a0b 100%);
+    radial-gradient(50% 50% at 85% 85%, rgba(70, 90, 120, 0.08), transparent 60%),
+    linear-gradient(180deg, #faf8f3 0%, #f2efe8 60%, #eeeae2 100%);
   animation: drift 22s ease-in-out infinite alternate;
 }
 @keyframes drift {

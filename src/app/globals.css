@@ -1,29 +1,29 @@
 /* ============================================================
-   DESIGN SYSTEM — Portfolio Architecte · Sombre / Cinématique
+   DESIGN SYSTEM — Portfolio Architecte · Clair / Éditorial
    ============================================================ */
 
 :root {
   /* Fonds */
-  --bg: #0a0a0b;
-  --bg-2: #101013;
-  --surface: #16161a;
-  --surface-2: #1d1d22;
+  --bg: #f5f3ee;
+  --bg-2: #eeeae2;
+  --surface: #ffffff;
+  --surface-2: #efeae1;
 
   /* Texte */
-  --text: #f3f1ec;
-  --text-soft: #cbc8c1;
-  --muted: #8c8880;
-  --muted-2: #605d57;
+  --text: #1c1b19;
+  --text-soft: #4a463f;
+  --muted: #6d685f;
+  --muted-2: #9c968b;
 
   /* Accent bronze / sable (chaleur architecturale) */
-  --accent: #c9a25f;
-  --accent-soft: #e0c48c;
-  --accent-dim: rgba(201, 162, 95, 0.14);
+  --accent: #b3812f;
+  --accent-soft: #8a5e18;
+  --accent-dim: rgba(179, 129, 47, 0.12);
 
   /* Lignes & voiles */
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.16);
-  --overlay: rgba(8, 8, 9, 0.72);
+  --line: rgba(28, 24, 18, 0.1);
+  --line-strong: rgba(28, 24, 18, 0.2);
+  --overlay: rgba(245, 243, 238, 0.75);
 
   /* Rythme */
   --maxw: 1240px;
@@ -137,8 +137,8 @@ img {
   z-index: 2;
   background: radial-gradient(
     ellipse at 50% 40%,
-    transparent 55%,
-    rgba(0, 0, 0, 0.55) 100%
+    transparent 65%,
+    rgba(28, 24, 18, 0.06) 100%
   );
   mix-blend-mode: multiply;
 }
